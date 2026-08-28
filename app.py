@@ -23,7 +23,7 @@ chamados = [
 # Equipe do grupo - cada grupo preenche com os proprios nomes e papeis
 equipe = [
     {"nome": "Eduarda de Lima Sales", "papel": "Product Owner / CIO"},
-    {"nome": "Cauê Mayo Simôes", "papel": "Dev Lead"},
+    {"nome": "Cauê Mayo Simões", "papel": "Dev Lead"},
     {"nome": "Nathalia Cappellini Pereira e Vitor Lopes Ribeiro", "papel": "QA / Auditoria"},
 ]
 
