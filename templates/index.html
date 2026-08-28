@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <p>Total de chamados cadastrados: <strong>{{ total }}</strong></p>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Status</th>
+    </tr>
+    {% for c in chamados %}
+    <tr>
+      <td>{{ c.id }}</td>
+      <td>{{ c.titulo }}</td>
+      <td>
+        <span class="status {{ c.status | replace(' ', '-') }}">{{ c.status }}</span>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p style="margin-top:24px; color:#6B7280; font-size:13px;">
+    Semana 1: esta lista ainda é fixa no código. Nas próximas semanas o grupo vai
+    transformar isso em um cadastro.
+  </p>
+{% endblock %}

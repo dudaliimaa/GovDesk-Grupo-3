@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2 style="color:#1E2761;">Equipe do Projeto</h2>
+  <table>
+    <tr>
+      <th>Integrante</th>
+      <th>Papel</th>
+    </tr>
+    {% for pessoa in equipe %}
+    <tr>
+      <td>{{ pessoa.nome }}</td>
+      <td>{{ pessoa.papel }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p style="margin-top:24px; color:#6B7280; font-size:13px;">
+    ITI004 — Gestão e Governança de TI · Projeto GovDesk
+  </p>
+{% endblock %}

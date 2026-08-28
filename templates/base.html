@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>GovDesk</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 720px; margin: 40px auto; color: #222; }
+    header { border-bottom: 3px solid #F0A93F; padding-bottom: 12px; margin-bottom: 24px; }
+    header h1 { color: #1E2761; margin-bottom: 4px; }
+    nav a { margin-right: 16px; color: #1E2761; text-decoration: none; font-weight: bold; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #ddd; }
+    th { background: #F4F6FB; color: #1E2761; }
+    .status { padding: 3px 10px; border-radius: 10px; font-size: 12px; color: white; }
+    .aberto { background: #d9534f; }
+    .em-andamento { background: #F0A93F; }
+    .resolvido { background: #2C5F2D; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GovDesk</h1>
+    <nav>
+      <a href="/">Chamados</a>
+      <a href="/sobre">Sobre o Projeto</a>
+    </nav>
+  </header>
+  {% block content %}{% endblock %}
+</body>
+</html>
