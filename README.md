@@ -11,7 +11,7 @@ Sistema de chamados de TI.
 | Eduarda de Lima Sales | Product Owner / CIO |
 | Cauê Mayo Simões  | Dev Lead |
 | Nathalia Cappellini Pereira e Vitor Lopes Ribeiro | QA / Auditoria |
-| Vitor Lopes Ribeiro | Compliance & Auditoria de TI |
+| Vitor Lopes Ribeiro | DevOps & Security Analyst |
 
 ## Como rodar
 
