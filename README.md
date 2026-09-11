@@ -10,7 +10,7 @@ Sistema de chamados de TI.
 |---|---|
 | Eduarda de Lima Sales | Product Owner / CIO |
 | Cauê Mayo Simões  | Dev Lead |
-| Nathalia Cappellini Pereira e Vitor Lopes Ribeiro | QA / Auditoria |
+| Nathalia Cappellini Pereira | QA / Auditoria |
 | Vitor Lopes Ribeiro | DevOps & Security Analyst |
 
 ## Como rodar
@@ -24,7 +24,7 @@ Sistema de chamados de TI.
 
 - [x] Semana 1 — Setup inicial, esqueleto Flask no ar
 - [x] Semana 2 — PETI do projeto
-- [ ] Semana 3 — Checklist LGPD
+- [x] Semana 3 — Checklist LGPD
 - [ ] Semana 4 — Matriz RACI + template de mudança
 - [ ] Semana 5 — Código de conduta do time
 - [ ] Semana 6 — Backlog no board + protótipo funcional
