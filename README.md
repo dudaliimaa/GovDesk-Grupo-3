@@ -25,7 +25,7 @@ Sistema de chamados de TI.
 - [x] Semana 1 — Setup inicial, esqueleto Flask no ar
 - [x] Semana 2 — PETI do projeto
 - [x] Semana 3 — Checklist LGPD
-- [ ] Semana 4 — Matriz RACI + template de mudança
+- [x] Semana 4 — Matriz RACI + template de mudança
 - [ ] Semana 5 — Código de conduta do time
 - [ ] Semana 6 — Backlog no board + protótipo funcional
 - [ ] Semana 7 — Entrega avaliativa (MVP)
