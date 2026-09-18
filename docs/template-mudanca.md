@@ -4,28 +4,27 @@
 
 ## O que muda 
 
-(descrição objetiva da alteração) 
+Adicionar um filtro de busca por status (aberto, em atendimento, fechado) na listagem de chamados.
 
   
 
 ## Por que 
 
-(motivo — que problema resolve ou objetivo atende) 
+Facilitar a visualização e localização rápida dos chamados pela equipe de suporte.
 
   
 
 ## Quem solicita 
 
-(nome) 
-
+Cauê Mayo (Dev Lead)
   
 
 ## Quem aprova 
 
-(nome do Accountable responsável por liberar) 
+Eduarda Lima (Product Owner) 
 
   
 
 ## Impacto / Risco 
 
-(o que pode dar errado e como será verificado antes de subir) 
+Baixo — altera apenas a interface de busca; testar se a listagem continua carregando todos os registros sem travar. 
