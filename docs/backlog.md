@@ -1,0 +1,14 @@
+# Backlog do Produto — GovDesk
+
+| ID | Épico | História | Critério de aceite | Prioridade | Responsável | Sprint |
+|---|---|---|---|---|---|---|
+| H1 | Cadastro | Como solicitante, quero abrir um chamado na rota `/novo`, para registrar o meu problema na plataforma. | Formulário grava o chamado com status "aberto" e redireciona para a página inicial. | Alta | Cauê (Dev Lead) | 1 |
+| H2 | Cadastro | Como solicitante, quero ser avisado sobre o tratamento de dados sensíveis, para respeitar as diretrizes da LGPD. | Mensagem de aviso sobre LGPD visível diretamente junto ao campo de descrição. | Alta | Nathalia (QA / Auditoria) | 1 |
+| H3 | Cadastro | Como solicitante, quero ver uma mensagem de erro se deixar campos obrigatórios em branco, para corrigir o formulário antes de enviar. | Título ou solicitante em branco geram alerta na tela e nenhum chamado é criado. | Alta | Cauê (Dev Lead) | 1 |
+| H4 | Cadastro | Como solicitante, quero selecionar a prioridade do chamado no momento do cadastro, para indicar a urgência da demanda. | Menu suspenso com as opções "baixa", "média" e "alta" pré-selecionando "média" por padrão. | Média | Cauê (Dev Lead) | 1 |
+| H5 | Acompanhamento | Como técnico de suporte, quero visualizar a prioridade e o solicitante na lista de chamados, para organizar o atendimento por urgência. | Tabela inicial exibe as colunas Solicitante e Prioridade atualizadas. | Alta | Cauê (Dev Lead) | 1 |
+| H6 | Acompanhamento | Como técnico de suporte, quero identificar o status do chamado por cores contrastantes, para ter uma visão rápida das pendências. | Tags de status com cores distintas para "aberto", "em atendimento" e "resolvido". | Média | Nathalia (QA / Auditoria) | 1 |
+| H7 | Governança | Como Product Owner, quero manter a Matriz RACI e a EAP/WBS atualizadas no repositório, para garantir a clareza das responsabilidades e do escopo. | Ficheiros `raci.md` e `wbs.md` versionados e estruturados na pasta `docs/`. | Alta | Eduarda (Product Owner) | 1 |
+| H8 | Governança | Como auditor, quero consultar o histórico de alterações no repositório, para rastrear as decisões de desenvolvimento e aprovações. | Ficheiro `backlog.md` versionado com mensagens de commit padronizadas (Conventional Commits). | Média | Eduarda (Product Owner) | 1 |
+| H9 | Segurança / LGPD | Como encarregado de dados (DPO), quero garantir que nenhum dado sensível seja armazenado sem consentimento, para evitar sanções legais. | Formulário valida e limpa os campos de texto antes de salvar o objeto em memória. | Alta | Vitor (DevOps & Security) | 1 |
+| H10 | Infraestrutura / CI | Como engenheiro de DevOps, quero garantir que a esteira do GitHub esteja configurada, para validar o código e a documentação a cada commit na branch `main`. | Pipeline de verificação executando sem erros no repositório do GitHub. | Média | Vitor (DevOps & Security) | 1 |

@@ -15,7 +15,7 @@ app = Flask(__name__)
 # "Banco de dados" provisorio (sera substituido nas proximas semanas)
 chamados = [
     {"id": 1, "titulo": "Impressora do 2o andar nao liga","solicitante": "João Carlos","prioridade": "alta", "status": "aberto"},
-    {"id": 2, "titulo": "Sistema de vendas lento","solicitante": "Ana Maria","prioridade": "media", "status": "em andamento"},
+    {"id": 2, "titulo": "Sistema de vendas lento","solicitante": "Ana Maria","prioridade": "média", "status": "em andamento"},
     {"id": 3, "titulo": "Solicitacao de acesso ao ERP","solicitante": "Eduardo dos Santos","prioridade": "baixa", "status": "resolvido"},
 ]
 
@@ -23,7 +23,8 @@ chamados = [
 equipe = [
     {"nome": "Eduarda de Lima Sales", "papel": "Product Owner / CIO"},
     {"nome": "Cauê Mayo Simões", "papel": "Dev Lead"},
-    {"nome": "Nathalia Cappellini Pereira e Vitor Lopes Ribeiro", "papel": "QA / Auditoria"},
+    {"nome": "Nathalia Cappellini Pereira", "papel": "QA / Auditoria"},
+    {"nome": "Vitor Lopes Ribeiro", "papel": "DevOps & Security Analyst"}
 ]
 
 PRIORIDADES = ["baixa", "média", "alta"]

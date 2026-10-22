@@ -26,8 +26,8 @@ Sistema de chamados de TI.
 - [x] Semana 2 — PETI do projeto
 - [x] Semana 3 — Checklist LGPD
 - [x] Semana 4 — Matriz RACI + template de mudança
-- [ ] Semana 5 — Código de conduta do time
-- [ ] Semana 6 — Backlog no board + protótipo funcional
+- [x] Semana 5 — Código de conduta do time
+- [x] Semana 6 — Backlog no board + protótipo funcional
 - [ ] Semana 7 — Entrega avaliativa (MVP)
 - [ ] Semana 8 — Fluxo BPMN implementado
 - [ ] Semana 10 — Autoavaliação de maturidade COBIT
