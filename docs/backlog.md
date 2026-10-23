@@ -2,7 +2,7 @@
 
 | ID | Épico | História | Critério de aceite | Prioridade | Responsável | Sprint |
 |---|---|---|---|---|---|---|
-| H1 | Cadastro | Como solicitante, quero abrir um chamado na rota `/novo`, para registrar o meu problema na plataforma. | Formulário grava o chamado com status "aberto" e redireciona para a página inicial. | Alta | Cauê (Dev Lead) | 1 |
+| H1 | Cadastro | Como solicitante, quero abrir um chamado, para registrar o meu problema na plataforma. | Formulário grava o chamado com status "aberto" e redireciona para a página inicial. | Alta | Cauê (Dev Lead) | 1 |
 | H2 | Cadastro | Como solicitante, quero ser avisado sobre o tratamento de dados sensíveis, para respeitar as diretrizes da LGPD. | Mensagem de aviso sobre LGPD visível diretamente junto ao campo de descrição. | Alta | Nathalia (QA / Auditoria) | 1 |
 | H3 | Cadastro | Como solicitante, quero ver uma mensagem de erro se deixar campos obrigatórios em branco, para corrigir o formulário antes de enviar. | Título ou solicitante em branco geram alerta na tela e nenhum chamado é criado. | Alta | Cauê (Dev Lead) | 1 |
 | H4 | Cadastro | Como solicitante, quero selecionar a prioridade do chamado no momento do cadastro, para indicar a urgência da demanda. | Menu suspenso com as opções "baixa", "média" e "alta" pré-selecionando "média" por padrão. | Média | Cauê (Dev Lead) | 1 |
