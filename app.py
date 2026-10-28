@@ -9,17 +9,68 @@ memoria mesmo, so para termos algo rodando e visivel no navegador.
 """
 
 import os
+import sqlite3
+import json
 from flask import Flask, render_template, request, redirect, url_for
+
 app = Flask(__name__)
 
-# "Banco de dados" provisorio (sera substituido nas proximas semanas)
-chamados = [
-    {"id": 1, "titulo": "Impressora do 2o andar nao liga","solicitante": "João Carlos","prioridade": "alta", "status": "aberto"},
-    {"id": 2, "titulo": "Sistema de vendas lento","solicitante": "Ana Maria","prioridade": "média", "status": "em andamento"},
-    {"id": 3, "titulo": "Solicitacao de acesso ao ERP","solicitante": "Eduardo dos Santos","prioridade": "baixa", "status": "resolvido"},
-]
+# Conexão/criação do banco de dados
+try:
+    with sqlite3.connect("database.db") as conn:
+        print("Banco de dado aberto")
+except sqlite3.OperationalError as e:
+    print("Falha ao conectar com o banco de dados: ", e)
+cursor = conn.cursor()
 
-# Equipe do grupo - cada grupo preenche com os proprios nomes e papeis
+
+### Criação das tabelas (se não já existirem) ###
+## Tabela dos solicitantes (empregados)
+comando = """CREATE TABLE IF NOT EXISTS SOLICITANTE(
+id_solicitante INTEGER PRIMARY KEY AUTOINCREMENT, 
+nm_solicitante TEXT NOT NULL, 
+senha TEXT NOT NULL, 
+email TEXT, 
+telefone TEXT, 
+cpf TEXT NOT NULL)"""
+cursor.execute(comando)
+    
+## Tabela dos chamados
+comando = """CREATE TABLE IF NOT EXISTS CHAMADO(
+id_chamado INTEGER PRIMARY KEY AUTOINCREMENT, 
+titulo TEXT NOT NULL, 
+descricao TEXT,
+id_solicitante INTEGER NOT NULL, 
+prioridade TEXT NOT NULL, 
+status TEXT NOT NULL,
+CONSTRAINT fk_cha_solic FOREIGN KEY (id_solicitante) REFERENCES SOLICITANTE(id_solicitante))"""
+cursor.execute(comando)
+print("Tabelas criadas/verificadas")
+
+
+### Inserção de dados mas tabelas ###
+## PS: esse comando deve ser executado apenas uma vez, comentar tudo depois de usar
+# ## Solicitante ##
+# comando = """INSERT INTO SOLICITANTE(nm_solicitante, senha, cpf) VALUES
+# ('Nenhum', '123', 'Nenhum'),
+# ('João Carlos', '123', '849.021.902-40'),
+# ('Ana Maria', '123', '901.379.284-96'),
+# ('Eduardo dos Santos', '123', '590.278.971-13')"""
+# cursor.execute(comando)
+# conn.commit()
+ 
+# ## Chamado ##
+# comando = """INSERT INTO CHAMADO(titulo, id_solicitante, prioridade, status) VALUES
+# ('Impressora do 2o andar nao liga', 2, 'alta', 'aberto'),
+# ('Sistema de vendas lento', 3, 'média', 'em andamento'),
+# ('Solicitacao de acesso ao ERP', 4, 'baixa','resolvido')"""
+# cursor.execute(comando)
+# conn.commit()
+# print("Dados inseridos")
+
+cursor.close
+
+# Equipe do grupo
 equipe = [
     {"nome": "Eduarda de Lima Sales", "papel": "Product Owner / CIO"},
     {"nome": "Cauê Mayo Simões", "papel": "Dev Lead"},
@@ -31,7 +82,7 @@ PRIORIDADES = ["baixa", "média", "alta"]
 
 @app.route("/")
 def index():
-    return render_template("index.html", chamados=chamados, total=len(chamados))
+    return render_template("index.html", chamados=getChamados(), total=len(getChamados()))
 
 
 @app.route("/sobre")
@@ -44,28 +95,59 @@ def novo():
     if request.method == "POST":
         titulo = request.form.get("titulo", "").strip()
         descricao = request.form.get("descricao", "").strip()
-        solicitante = request.form.get("solicitante", "").strip()
+        solicitante = request.form.get("solicitante", "").strip() 
         prioridade = request.form.get("prioridade", "média")
 
-        if not titulo or not solicitante:
-            erro = "Preencha o título e o nome do solicitante."
+        if not titulo:
+            erro = "Preencha o título do chamado."
         elif prioridade not in PRIORIDADES:
             erro = "Prioridade inválida."
         else:
-            novo_id = max((c["id"] for c in chamados), default=0) + 1
-            chamados.append({
-                "id": novo_id,
-                "titulo": titulo,
-                "descricao": descricao,
-                "solicitante": solicitante,
-                "prioridade": prioridade,
-                "status": "aberto",
-            })
+            solicitante = 1 ## TEMPORÁRIO --- MUDAR QUANDO ADICIONAR LOGIN ##
+            addChamado(titulo,descricao,solicitante,prioridade)
             return redirect(url_for("index"))
 
     # Em caso de erro, devolve o que a pessoa digitou (request.form)
     return render_template("novo.html", erro=erro, prioridades=PRIORIDADES,
     dados=request.form)
+
+
+
+#TODO: Adicionar classe para lidar com banco de dados
+def addChamado(titulo,descricao,solicitante,prioridade):
+    try:
+        with sqlite3.connect("database.db") as conn:
+            print("Banco de dado aberto")
+    except sqlite3.OperationalError as e:
+        print("Falha ao conectar com o banco de dados: ", e)
+    cursor = conn.cursor()
+    comando=f"INSERT INTO CHAMADO(titulo,descricao,id_solicitante, prioridade, status) VALUES('{titulo}','{descricao}',{solicitante},'{prioridade}','aberto')"
+    cursor.execute(comando)
+    conn.commit()
+    cursor.close()
+    print("Chamado adicionado!")
+
+def getChamados():
+    try:
+        with sqlite3.connect("database.db") as conn:
+            print("Banco de dado aberto")
+    except sqlite3.OperationalError as e:
+        print("Falha ao conectar com o banco de dados: ", e)
+    cursor = conn.cursor()
+    comando = """SELECT c.id_chamado as id, c.titulo as 'titulo', s.nm_solicitante as 'solicitante', c.prioridade as 'prioridade', c.status as 'status'
+    FROM chamado as c INNER JOIN solicitante as s ON c.id_solicitante = s.id_solicitante"""
+    cursor.execute(comando)
+    linhas = cursor.fetchall()
+    colunas = [column[0] for column in cursor.description]
+
+    chamados = []
+    for linha in linhas:
+        linha_dict = {colunas[i]: linha[i] for i in range(len(colunas))}
+        chamados.append(linha_dict)
+
+    cursor.close()
+    return chamados
+
 
 
 if __name__ == "__main__":
