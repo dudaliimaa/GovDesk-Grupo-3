@@ -35,3 +35,4 @@ Sistema de chamados de TI.
 ## Board do projeto
 
 Link do board Kanban (GitHub Projects): _https://trello.com/b/muyrjZIP_
+Link do protótipo no Figma: https://www.figma.com/proto/BCqQVfeHlm0Xj0RXUsJeIv/Prot%C3%B3tipo-GovDesk---Grupo-3?node-id=3-3342&p=f&t=kyIA5N1eXUvbA889-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A3342 
