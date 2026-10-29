@@ -17,3 +17,10 @@
   * **3.2** Matriz RACI e Políticas de Mudança em `docs/`
   * **3.3** Verificação de conformidade de dados sensíveis
   * **3.4** Validação do repositório e esteira no GitHub
+
+* **4. Autenticação e Gestão de Usuários**
+  * **4.1** Cadastro de usuário (solicitante) na rota  `/cadastro`, com nome, e-mail, CPF, telefone (opcional) e senha
+  * **4.2** Validação do cadastro: campos obrigatórios, confirmação de senha, mínimo de 8 caracteres e bloqueio de e-mail ou CPF já cadastrados
+  * **4.3** Armazenamento seguro da senha com hash (Werkzeug)
+  * **4.4** Login na rota /login e logout na rota /logout, com controle de sessão
+  * **4.5** Proteção da rota /novo: somente usuário autenticado abre chamado, e o solicitante é identificado pela sessão
