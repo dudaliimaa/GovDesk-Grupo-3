@@ -1,19 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
-  <h2 style="color:#1E2761;">Equipe do Projeto</h2>
-  <table>
-    <tr>
-      <th>Integrante</th>
-      <th>Papel</th>
-    </tr>
-    {% for pessoa in equipe %}
-    <tr>
-      <td>{{ pessoa.nome }}</td>
-      <td>{{ pessoa.papel }}</td>
-    </tr>
-    {% endfor %}
-  </table>
-  <p style="margin-top:24px; color:#6B7280; font-size:13px;">
-    ITI004 — Gestão e Governança de TI · Projeto GovDesk
-  </p>
+  <section class="page-heading">
+    <div>
+      <h2>Sobre o projeto</h2>
+      <p class="page-description">
+        Conheça a equipe responsável pelo desenvolvimento do GovDesk.
+      </p>
+    </div>
+  </section>
+  <section class="card">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Integrante</th>
+            <th>Papel no projeto</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for pessoa in equipe %}
+          <tr>
+            <td>{{ pessoa.nome }}</td>
+            <td>{{ pessoa.papel }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="page-description" style="margin-top: 18px;">
+      O GovDesk é um projeto acadêmico da disciplina
+      Gestão e Governança de TI (ITI004).
+    </p>
+  </section>
 {% endblock %}

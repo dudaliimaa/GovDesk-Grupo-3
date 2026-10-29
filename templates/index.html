@@ -1,29 +1,58 @@
 {% extends "base.html" %}
 {% block content %}
-  <p>Total de chamados cadastrados: <strong>{{ total }}</strong></p>
-  <table>
-    <tr>
-      <th>ID</th>
-      <th>Título</th>
-      <th>Solicitante</th>
-      <th>Prioridade</th>
-      <th>Status</th>
-  
-    </tr>
-    {% for c in chamados %}
-    <tr>
-      <td>{{ c.id }}</td>
-      <td>{{ c.titulo }}</td>
-      <td>{{ c.solicitante }}</td>
-      <td>{{ c.prioridade }}</td>
-      <td>
-        <span class="status {{ c.status | replace(' ', '-') }}">{{ c.status }}</span>
-      </td>
-    </tr>
-    {% endfor %}
-  </table>
-  <!-- <p style="margin-top:24px; color:#6B7280; font-size:13px;">
-    Semana 1: esta lista ainda é fixa no código. Nas próximas semanas o grupo vai
-    transformar isso em um cadastro.
-  </p> -->
+  <section class="page-heading">
+    <div>
+      <h2>Painel de chamados</h2>
+      <p class="page-description">
+        Consulte os chamados registrados no sistema de suporte de TI.
+      </p>
+    </div>
+  </section>
+  <section class="card">
+    <div class="summary">
+      <div>
+        <p class="summary-label">Total de chamados cadastrados</p>
+        <p class="summary-number">{{ total }}</p>
+      </div>
+      <a class="button" href="/novo">＋ Novo chamado</a>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Solicitante</th>
+            <th>Prioridade</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for c in chamados %}
+          <tr>
+            <td>#{{ c.id }}</td>
+            <td>{{ c.titulo }}</td>
+            <td>{{ c.solicitante }}</td>
+            <td>
+              <span class="priority {{ c.prioridade }}">
+                {{ c.prioridade }}
+              </span>
+            </td>
+            <td>
+              <span class="status {{ c.status | replace(' ', '-') }}">
+                {{ c.status }}
+              </span>
+            </td>
+          </tr>
+          {% else %}
+          <tr>
+            <td colspan="5">
+              Nenhum chamado cadastrado até o momento.
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
 {% endblock %}

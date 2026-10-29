@@ -1,33 +1,76 @@
 {% extends "base.html" %}
-
 {% block content %}
-    <h2 style="color:#1E2761;">Novo chamado</h2>
-    {% if erro %}
-    <p style="background:#fdecea; color:#8a1f17; padding:10px 14px; border-radius:6px;">{{ erro }}</p>
-    {% endif %}
-    <form method="post" style="display:grid; gap:14px; max-width:520px;">
-        <label>Título *
-            <input type="text" name="titulo" value="{{ dados.get('titulo', '') }}" style="width:100%; padding:8px;">
-        </label>
-        <label>Descrição
-            <textarea name="descricao" rows="4" style="width:100%; padding:8px;">{{ dados.get('descricao', '') }}</textarea>
-            <small style="color:#6B7280;">
-            Aviso de privacidade: não informe dados pessoais sensíveis (saúde, religião, etc.) neste campo.
-            </small>
-        </label>
-        <label>Solicitante *
-            <input type="text" name="solicitante" value="{{ dados.get('solicitante', '') }}" style="width:100%; padding:8px;">
-        </label>
-        <label>Prioridade
-            <select name="prioridade" style="padding:8px;">
-                {% for p in prioridades %}
-                <option value="{{ p }}" {% if dados.get('prioridade', 'média') == p %}selected{% endif %}>{{ p }}</option>
-                {% endfor %}
-            </select>
-        </label>
-
-        <button type="submit" style="background:#1E2761; color:white; border:0; padding:10px 16px; border-radius:6px; cursor:pointer;">
-            Abrir chamado
-        </button>
-    </form>
+<section class="page-heading" style="max-width: 650px; width: 100%; margin: 0 auto 20px auto;">
+  <div>
+    <h2>Novo chamado</h2>
+    <p class="page-description">
+      Preencha as informações para registrar uma solicitação de suporte.
+    </p>
+  </div>
+</section>
+<section class="card form-card" style="max-width: 650px; width: 100%; margin: 0 auto; box-sizing: border-box;">
+  {% if erro %}
+    <p class="error-message" role="alert">
+      {{ erro }}
+    </p>
+  {% endif %}
+  <form method="post" class="form-grid">
+    <label for="titulo">
+      Título *
+      <input
+        id="titulo"
+        type="text"
+        name="titulo"
+        value="{{ dados.get('titulo', '') }}"
+        required
+      >
+    </label>
+    <label for="descricao">
+      Descrição
+      <textarea
+        id="descricao"
+        name="descricao"
+        rows="4"
+      >{{ dados.get('descricao', '') }}</textarea>
+      <span class="field-help">
+        Descreva o problema ou a necessidade de suporte.
+      </span>
+      <span class="field-help">
+        Aviso de privacidade: não informe dados pessoais sensíveis,
+        como informações de saúde ou religião, neste campo.
+      </span>
+    </label>
+    <label for="solicitante">
+      Solicitante *
+      <input
+        id="solicitante"
+        type="text"
+        name="solicitante"
+        value="{{ dados.get('solicitante', '') }}"
+        required
+      >
+    </label>
+    <label for="prioridade">
+      Prioridade
+      <select id="prioridade" name="prioridade">
+        {% for p in prioridades %}
+          <option
+            value="{{ p }}"
+            {% if dados.get('prioridade', 'média') == p %}selected{% endif %}
+          >
+            {{ p|capitalize }}
+          </option>
+        {% endfor %}
+      </select>
+    </label>
+    <div class="form-actions">
+      <button class="button" type="submit">
+        Abrir chamado
+      </button>
+      <a class="button button-secondary" href="/">
+        Cancelar
+      </a>
+    </div>
+  </form>
+</section>
 {% endblock %}
