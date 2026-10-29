@@ -2,7 +2,7 @@
 
 Projeto da disciplina **Gestão e Governança de TI (ITI004)**.
 
-Sistema de chamados de TI.
+Sistema de gestão de chamados de suporte de TI.
 
 ## Equipe
 
@@ -34,5 +34,5 @@ Sistema de chamados de TI.
 
 ## Board do projeto
 
-- Link do board Kanban (GitHub Projects): _https://trello.com/b/muyrjZIP_ 
-- Link do protótipo no Figma: https://www.figma.com/proto/BCqQVfeHlm0Xj0RXUsJeIv/Prot%C3%B3tipo-GovDesk---Grupo-3?node-id=3-3342&p=f&t=kyIA5N1eXUvbA889-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A3342 
+- Link do board Kanban no Trello: [Clique Aqui](https://trello.com/invite/b/6a90c400cfe2d0146ed82934/ATTI386a7fb701f0faed9693b66535f186c933C1B3F8/projeto-govdesk-sala-3)
+- Link do protótipo no Figma: [Clique Aqui](https://www.figma.com/proto/BCqQVfeHlm0Xj0RXUsJeIv/Prot%C3%B3tipo-GovDesk---Grupo-3?node-id=3-3342&p=f&t=kyIA5N1eXUvbA889-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A3342)
