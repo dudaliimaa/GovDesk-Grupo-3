@@ -125,6 +125,7 @@ def cadastro():
                             telefone,
                             cpf
                         ))
+                        conn.commit()
 
                 if erro is None:
                     flash("Cadastro realizado com sucesso! Faça seu login.")
