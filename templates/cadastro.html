@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-heading" style="justify-content: center; text-align: center;">
+    <div>
+        <h2>Criar uma conta</h2>
+        <p class="page-description">
+            Cadastre-se para acessar o sistema de chamados do GovDesk.
+        </p>
+    </div>
+</section>
+<section class="card form-card"
+         style="max-width: 650px; width: 100%; margin: 0 auto;">
+    <form class="form-grid" method="POST" action="{{ url_for('cadastro') }}">
+        <label for="nome">
+            Nome completo
+            <input
+                id="nome"
+                name="nome"
+                type="text"
+                placeholder="Digite seu nome completo"
+                autocomplete="name"
+                required
+            >
+        </label>
+        <label for="email">
+            E-mail
+            <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Digite seu e-mail"
+                autocomplete="email"
+                required
+            >
+        </label>
+        <label for="cpf">
+            CPF
+            <input
+                id="cpf"
+                name="cpf"
+                type="text"
+                placeholder="Digite seu CPF"
+                autocomplete="off"
+                required
+            >
+        </label>
+        <label for="telefone">
+            Telefone <span style="font-weight: 400;">(opcional)</span>
+            <input
+                id="telefone"
+                name="telefone"
+                type="tel"
+                placeholder="Digite seu telefone"
+                autocomplete="tel"
+            >
+        </label>
+        <label for="senha">
+            Senha
+            <input
+                id="senha"
+                name="senha"
+                type="password"
+                placeholder="Crie uma senha"
+                autocomplete="new-password"
+                required
+            >
+        </label>
+        <label for="confirmar_senha">
+            Confirmar senha
+            <input
+                id="confirmar_senha"
+                name="confirmar_senha"
+                type="password"
+                placeholder="Digite a senha novamente"
+                autocomplete="new-password"
+                required
+            >
+        </label>
+        <div class="form-actions">
+            <button type="submit" class="button">
+                Criar conta
+            </button>
+        </div>
+        <p style="text-align: center; margin: 0;">
+            Já possui uma conta?
+            <a href="{{ url_for('login') }}">Entrar</a>
+        </p>
+    </form>
+</section>
+{% endblock %}

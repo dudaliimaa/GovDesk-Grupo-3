@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-heading" style="justify-content: center; text-align: center;">
+    <div>
+        <h2>Entrar no GovDesk</h2>
+        <p class="page-description">
+            Acesse sua conta para utilizar o sistema de chamados de TI.
+        </p>
+    </div>
+</section>
+<section class="card form-card"
+         style="max-width: 650px; width: 100%; margin: 0 auto;">
+    <form class="form-grid" method="POST" action="{{ url_for('login') }}">
+        <label for="email">
+            E-mail
+            <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Digite seu e-mail"
+                autocomplete="username"
+                required
+            >
+        </label>
+        <label for="senha">
+            Senha
+            <input
+                id="senha"
+                name="senha"
+                type="password"
+                placeholder="Digite sua senha"
+                autocomplete="current-password"
+                required
+            >
+        </label>
+        <div class="form-actions">
+            <button type="submit" class="button">
+                Entrar
+            </button>
+        </div>
+        <p style="text-align: center; margin: 0;">
+            Ainda não tem uma conta?
+            <a href="{{ url_for('cadastro') }}">Cadastre-se</a>
+        </p>
+    </form>
+</section>
+{% endblock %}
