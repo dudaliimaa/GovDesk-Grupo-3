@@ -340,6 +340,7 @@
         {% if session.get('id_solicitante') %}
           <a href="{{ url_for('novo') }}">Novo chamado</a>
         {% endif %}
+        <a href="{{ url_for('indicadores') }}">Indicadores</a>
         <a href="{{ url_for('sobre') }}">Sobre o projeto</a>
         {% if session.get('id_solicitante') %}
           <span class="usuario-logado">

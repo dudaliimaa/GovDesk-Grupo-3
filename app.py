@@ -79,6 +79,23 @@ def sobre():
     return render_template("sobre.html", equipe=equipe)
 
 
+@app.route("/indicadores")
+def indicadores():
+    chamados = getChamados()
+    total = len(chamados)
+    resolvidos = sum(1 for c in chamados if c.get("status") == "resolvido")
+    abertos = sum(1 for c in chamados if c.get("status") == "aberto")
+    taxa_sla = (resolvidos / total * 100) if total > 0 else 0
+
+    dados_indicadores = {
+        "total": total,
+        "resolvidos": resolvidos,
+        "abertos": abertos,
+        "taxa_sla": round(taxa_sla, 1)
+    }
+    return render_template("indicadores.html", indicadores=dados_indicadores)
+
+
 @app.route("/cadastro", methods=["GET", "POST"])
 def cadastro():
     erro = None

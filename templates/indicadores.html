@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <h2>Painel de Indicadores</h2>
+      <p class="page-description">Acompanhamento de desempenho e objetivos estratégicos da Governança de TI.</p>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-bottom: 24px;">
+    
+    <div class="card">
+      <p class="summary-label">Total de Chamados</p>
+      <p class="summary-number">{{ indicadores.total }}</p>
+    </div>
+
+    <div class="card">
+      <p class="summary-label">Chamados Resolvidos</p>
+      <p class="summary-number" style="color: #24612D;">{{ indicadores.resolvidos }}</p>
+    </div>
+
+    <div class="card">
+      <p class="summary-label">Chamados Abertos</p>
+      <p class="summary-number" style="color: #9D2924;">{{ indicadores.abertos }}</p>
+    </div>
+
+    <div class="card">
+      <p class="summary-label">Taxa de SLA no Prazo</p>
+      <p class="summary-number" style="color: #1E2761;">{{ indicadores.taxa_sla }}%</p>
+    </div>
+
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top: 0; color: var(--azul); font-size: 18px;">Conexão com o Balanced Scorecard (BSC)</h3>
+    <ul style="color: var(--texto); line-height: 1.6; margin-bottom: 0; font-size: 14px;">
+      <li><strong>Perspectiva de Clientes:</strong> Medida pelo indicador de SLA (Meta: $\geq 85\%$ no prazo).</li>
+      <li><strong>Perspectiva de Processos Internos:</strong> Monitorada pelo volume de chamados pendentes e eficiência na triagem inicial.</li>
+    </ul>
+  </div>
+{% endblock %}
