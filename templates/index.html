@@ -31,7 +31,11 @@
           {% for c in chamados %}
           <tr>
             <td>#{{ c.id }}</td>
-            <td>{{ c.titulo }}</td>
+            <td>
+              <a href="{{ url_for('detalhe_chamado', id_chamado=c.id) }}" style="color: var(--azul); font-weight: 700; text-decoration: none;">
+                {{ c.titulo }}
+              </a>
+            </td>
             <td>{{ c.solicitante }}</td>
             <td>
               <span class="priority {{ c.prioridade }}">

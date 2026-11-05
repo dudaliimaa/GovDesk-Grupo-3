@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <h2>Detalhes do Chamado #{{ chamado.id }}</h2>
+      <p class="page-description">Visualização e gerenciamento do status do atendimento.</p>
+    </div>
+  </div>
+
+  <div class="card form-card">
+    <p><strong>Título:</strong> {{ chamado.titulo }}</p>
+    <p><strong>Solicitante:</strong> {{ chamado.solicitante }}</p>
+    <p><strong>Prioridade:</strong> <span class="priority {{ chamado.prioridade }}">{{ chamado.prioridade }}</span></p>
+    <p><strong>Status Atual:</strong> <span class="status {{ chamado.status }}">{{ chamado.status }}</span></p>
+    
+    <hr style="border: 0; border-top: 1px solid var(--borda); margin: 20px 0;">
+    
+    <label>Descrição do Problema:</label>
+    <div style="background: #F4F6FB; padding: 14px; border-radius: 7px; margin-top: 7px; color: var(--texto);">
+      {{ chamado.descricao if chamado.descricao else 'Nenhuma descrição informada.' }}
+    </div>
+
+    <form method="POST" style="margin-top: 24px; display: grid; gap: 14px;">
+      <label>Alterar Status do Atendimento
+        <select name="status" style="margin-top: 7px; padding: 10px;">
+          <option value="aberto" {% if chamado.status == 'aberto' %}selected{% endif %}>Aberto</option>
+          <option value="em andamento" {% if chamado.status == 'em andamento' %}selected{% endif %}>Em andamento</option>
+          <option value="resolvido" {% if chamado.status == 'resolvido' %}selected{% endif %}>Resolvido</option>
+        </select>
+      </label>
+      <button type="submit" class="button">Salvar Alteração de Status</button>
+    </form>
+  </div>
+
+  <p style="margin-top: 20px;">
+    <a href="{{ url_for('index') }}" style="color: var(--azul); text-decoration: none; font-weight: 700;">&larr; Voltar para a listagem de chamados</a>
+  </p>
+{% endblock %}

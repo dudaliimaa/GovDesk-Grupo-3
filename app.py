@@ -33,8 +33,7 @@ def inicializar_banco():
                 nm_solicitante TEXT NOT NULL,
                 senha TEXT NOT NULL,
                 email TEXT,
-                telefone TEXT,
-                cpf TEXT NOT NULL
+                telefone TEXT
             )
         """)
 
@@ -103,12 +102,11 @@ def cadastro():
     if request.method == "POST":
         nome = request.form.get("nome", "").strip()
         email = request.form.get("email", "").strip().lower()
-        cpf = request.form.get("cpf", "").strip()
         telefone = request.form.get("telefone", "").strip()
         senha = request.form.get("senha", "")
         confirmar_senha = request.form.get("confirmar_senha", "")
 
-        if not nome or not email or not cpf or not senha:
+        if not nome or not email or not senha:
             erro = "Preencha todos os campos obrigatórios."
 
         elif senha != confirmar_senha:
@@ -123,24 +121,23 @@ def cadastro():
                     existente = conn.execute("""
                         SELECT id_solicitante
                         FROM SOLICITANTE
-                        WHERE LOWER(email) = ? OR cpf = ?
-                    """, (email, cpf)).fetchone()
+                        WHERE LOWER(email) = ?
+                    """, (email,)).fetchone()
 
                     if existente:
-                        erro = "Este e-mail ou CPF já está cadastrado."
+                        erro = "Este e-mail já está cadastrado."
                     else:
                         senha_hash = generate_password_hash(senha)
 
                         conn.execute("""
                             INSERT INTO SOLICITANTE
-                                (nm_solicitante, senha, email, telefone, cpf)
-                            VALUES (?, ?, ?, ?, ?)
+                                (nm_solicitante, senha, email, telefone)
+                            VALUES (?, ?, ?, ?)
                         """, (
                             nome,
                             senha_hash,
                             email,
-                            telefone,
-                            cpf
+                            telefone
                         ))
                         conn.commit()
 
@@ -148,8 +145,9 @@ def cadastro():
                     flash("Cadastro realizado com sucesso! Faça seu login.")
                     return redirect(url_for("login"))
 
-            except sqlite3.Error:
-                erro = "Não foi possível realizar o cadastro. Tente novamente."
+            except sqlite3.Error as e:
+                print(f"ERRO EXATO DO BANCO: {e}")
+                erro = f"Erro no banco: {e}"
 
     return render_template("cadastro.html", erro=erro)
 
@@ -251,6 +249,36 @@ def getChamados():
 
     return [dict(linha) for linha in linhas]
 
+@app.route("/chamado/<int:id_chamado>", methods=["GET", "POST"])
+def detalhe_chamado(id_chamado):
+    if "id_solicitante" not in session:
+        flash("Entre na sua conta para visualizar os chamados.")
+        return redirect(url_for("login"))
+
+    with conectar_banco() as conn:
+        if request.method == "POST":
+            novo_status = request.form.get("status")
+            conn.execute("""
+                UPDATE CHAMADO 
+                SET status = ? 
+                WHERE id_chamado = ?
+            """, (novo_status, id_chamado))
+            conn.commit()
+            flash("Status do chamado atualizado com sucesso!")
+            return redirect(url_for('detalhe_chamado', id_chamado=id_chamado))
+            
+        chamado = conn.execute("""
+            SELECT c.id_chamado AS id, c.titulo, c.descricao, c.prioridade, c.status, s.nm_solicitante AS solicitante 
+            FROM CHAMADO c 
+            JOIN SOLICITANTE s ON c.id_solicitante = s.id_solicitante 
+            WHERE c.id_chamado = ?
+        """, (id_chamado,)).fetchone()
+        
+    if not chamado:
+        flash("Chamado não encontrado.")
+        return redirect(url_for("index"))
+
+    return render_template("detalhe.html", chamado=chamado)
 
 if __name__ == "__main__":
     porta = int(os.environ.get("PORT", 8080))
