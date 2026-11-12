@@ -23,8 +23,7 @@ O **GovDesk** é uma aplicação web desenvolvida em Python com Flask para a ges
 - [x] **Semana 4** — Matriz RACI + Template de Mudança (`docs/raci.md` e `docs/template-mudanca.md`)
 - [x] **Semana 5** — Código de Conduta do time (`docs/codigo-conduta.md`)
 - [x] **Semana 6** — Backlog no board + WBS e critérios de aceite (`docs/backlog.md` e `docs/wbs.md`)
-- [x] **Semana 7** — Entrega avaliativa (MVP funcional)
-- [ ] **Semana 8** — Fluxo BPMN TO-BE implementado
+- [ ] **Semana 7 e 8** — Fluxo BPMN TO-BE implementado
 - [x] **Semana 9** — Plano de Melhoria Contínua, BSC, Maturidade e 5W2H (`docs/melhoria-continua.md`)
 - [x] **Semana 10** — Termo de Encerramento, Lições Aprendidas e Apresentação Final (`docs/encerramento.md`)
 
