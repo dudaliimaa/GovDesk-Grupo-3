@@ -78,7 +78,7 @@ O projeto GovDesk possui um arcabouço completo de governança estruturado ao lo
 | **Semana 4** | RACI & Mudanças | Matriz de responsabilidades e formulário de solicitação de mudança | [`docs/raci.md`](./docs/raci.md) / [`docs/template-mudanca.md`](./docs/template-mudanca.md) |
 | **Semana 5** | Código de Conduta | Diretrizes éticas e combinados de trabalho em equipe | [`docs/codigo-conduta.md`](./docs/codigo-conduta.md) |
 | **Semana 6** | Backlog & WBS | Decomposição do trabalho, histórias de usuário e critérios de aceite | [`docs/backlog.md`](./docs/backlog.md) / [`docs/wbs.md`](./docs/wbs.md) |
-| **Semana 7/8** | Processo BPMN | Fluxo de atendimento TO-BE modelado em BPMN com raias por papel da RACI | - |
+| **Semana 7/8** | Processo BPMN | - | - |
 | **Semana 9** | Melhoria Contínua & BSC | Auditoria de não conformidades, 5 Porquês, Balanced Scorecard e plano 5W2H | [`docs/melhoria-continua.md`](./docs/melhoria-continua.md) |
 | **Semana 10** | Encerramento & Lições | Termo de encerramento formal do projeto e lições aprendidas da equipe | [`docs/encerramento.md`](./docs/encerramento.md) / [`docs/licoes-aprendidas.md`](./docs/licoes-aprendidas.md) |
 
