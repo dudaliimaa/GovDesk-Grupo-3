@@ -44,9 +44,9 @@ Adicionar um filtro de busca por status (aberto, em atendimento, fechado) na lis
 
 ## Por que 
 
-Facilitar a visualização e localização rápida dos chamados pela equipe de suporte.
-
+Facilitar a visualização e a localização dos chamados pela equipe de suporte, permitindo filtrar as solicitações de acordo com sua situação.
   
+
 
 ## Quem solicita 
 
@@ -61,4 +61,4 @@ Eduarda Lima (Product Owner)
 
 ## Impacto / Risco 
 
-Baixo — altera apenas a interface de busca; testar se a listagem continua carregando todos os registros sem travar. 
+Baixo — a alteração afeta principalmente a interface de busca. Será necessário testar o funcionamento do filtro e verificar se a listagem continua carregando os chamados corretamente, sem apresentar erros.

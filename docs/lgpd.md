@@ -12,11 +12,13 @@
 
 ## Dados Sensíveis Identificados 
 
-- **Risco principal:** Por mais que o sistema não solicite intencionalmente dados sensíveis no cadastro básico, os **campos de texto livre** (como "Descrição" e "Anexos ou Arquivos enviados") representam um risco alto de armazenamento acidental de dados sensíveis.
+- **Risco principal:** Embora o sistema não solicite intencionalmente dados pessoais sensíveis no cadastro básico, os campos de texto livre, como "Descrição", e o envio de anexos podem permitir que os usuários compartilhem informações sensíveis de forma acidental ou desnecessária.
 - **Redução de risco:**
-  1. **Avisos e orientações na interface:** Inserir um aviso claro no formulário de abertura de chamado para orientar o usuário a não preencher informações sensíveis desnecessárias para sua resolução.
-  2. **Controle de Uploads:** Restringir tipos de arquivos aceitos em anexos.
-
+  1. **Avisos e orientações na interface:** Manter um aviso claro no formulário de abertura de chamados, orientando os usuários a não inserir dados pessoais sensíveis ou informações confidenciais que não sejam necessárias para a resolução da solicitação.
+  2. **Controle de Uploads:** Caso o envio de arquivos esteja disponível, restringir os tipos e tamanhos dos arquivos aceitos, além de avaliar medidas de segurança para evitar o envio de conteúdos inadequados.
+  3. **Acesso restrito:** Limitar o acesso às informações dos chamados aos integrantes da equipe que realmente necessitem desses dados para realizar suas atividades.
+  4. **Proteção das informações:** Evitar a exposição desnecessária de dados pessoais em telas, registros e compartilhamentos relacionados ao atendimento.
 ## Direitos do Titular 
 
-- **Canal de atendimento:** Criar um canal oficial de privacidade (ex: e-mail ou link direto no rodapé do sistema) para que o solicitante possa exercer seus direitos.
+- **Canal de atendimento:**  Disponibilizar um canal oficial de privacidade, como um endereço de e-mail ou formulário de contato, para que os titulares possam solicitar informações sobre o tratamento de seus dados pessoais e exercer os direitos previstos na LGPD.
+- **Atendimento às solicitações:**  Estabelecer um procedimento para receber, analisar e encaminhar as solicitações dos titulares ao responsável pelo tratamento de dados na organização.
